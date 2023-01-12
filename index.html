@@ -1,35 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1 id="heading">Namaste React</h1>
     <div id="root"></div>
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-<script>
-    const heading =document.getElementById("heading");
-    heading.innerHTML ="Hello from DOM";
-
-    // const newHeading = document.createElement("h2");
-    // newHeading.innerHTML ="adding a new h2 from DOM";
-    // const root=document.getElementById("root");
-    // root.appendChild(newHeading);
-
-    // React 
-    const heading1 = React.createElement("h1",{},"This is new heading 1 created by React");
-    const heading2 = React.createElement("h1",{},"This is new heading 2 created by React");
-    const newDiv = React.createElement("div",{},[heading1, heading2]);
-    
-    const root=ReactDOM.createRoot(document.getElementById("root"));
-
-    root.render(newDiv);
-
-    
-</script>
-</body> 
+    <script type="module" src="app.js"></script>
+  </body>
 </html>
