@@ -3,8 +3,10 @@ Answer:
 
 Question: What is `Parcel/Webpack`? Why do we need it?
 Answer:
+
 Question: What is `.parcel-cache`
 Answer:
+
 Question: What is `npx` ?
 Answer:
 Question: What is difference between `dependencies` vs `devDependencies`
