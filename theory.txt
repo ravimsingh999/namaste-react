@@ -1,8 +1,1 @@
-Question: What is JSX?
-Answer: 
-Question : superpowers of JSX?
-Answer:
-Question:  Role of type attribute in Script tag? What options can I use here?
-Answer:
-Question: {TitleComponent} vs {<TitleComponent/>} vs {<TitleComponent></TitleComponent>} in JSX?
-Answer:
+Questions and answers are remaining.... in this lecture.

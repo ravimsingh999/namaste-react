@@ -1,0 +1,45 @@
+*** In JSX there should be only have one parrent element. like in jsx if we write two h1,h2 element it will not be rendered, it should be under one div element or <p> to run, like these two heading under one div.
+    - to encounter this problem react give us React.fragment.
+
+    React.fragment :- React.fragment is a component which is exported by React.
+                      * it is like a empty tag.
+                      To use this we have to just use this like a component.
+
+                      <React.fragment>
+                      <component 1 />
+                      <component 2 />
+                      </React.fragment>
+
+                      OR
+
+                      <>
+                      <component 1 />
+                      <component 2 />
+                      </>
+
+
+*** Config Driven UI :- In Real word application we use/create a config driven UI , Config is controlled by backend. We create a UI such as acc to backend it can be changed , the same UI will be working for diffrent diffrent  locations offers etc.
+        Example: If we are creating a food ordering app then there may be a offer in Mumbai not in Delhi, so the offers will be visible in the top in mumbai location but that offers will not be visible in Delhi,may be there should be some other offers. These configs are handled by backend.
+
+
+
+*** Virtual DOM : We keep a representation of DOM, which we call as virtual DOM.
+                    Example :   Suppose in HTML file we have a h1 and then h2 then div  and this div has two divs and these are in body , understand like a tree , body has a div child , and that div has two div childs. like this and these tree node have the numbers.
+                
+                Reconciliation :    Its a algorithm that React uses to diff one tree from other and determines that what needs to change in UI and what needs not to be changed.
+                                    This is a process in which React uses the diff algorithms to track if there is any change in the virtual DOM.
+
+                                    Diff algorithm will find just that portion where the change is going to happen, there is only change will happen and rerendered not whole page.
+
+                Key :           Keys are very important part of React, because Key will help react to know what change has been done and what needs to be rerendered.
+
+                                Here Two outcomes:  if there are diffrent tags/element then there is no need of key , because react will recognize the change with the tag names,
+                                                    but
+                                                    if there are same tags/element and we add or delete new element then React will be confused which one is new , then react will rerender the whole parent component(all same divs).
+                                                    to solve this problem Key will help React to find out which element/tag is new and that only will be re rendered.
+
+                * React Fiber is the new algorithm used by react in Reconciliation process.
+                                    
+    
+    
+                                                                                    
