@@ -1,1 +1,44 @@
-Questions and answers are remaining.... in this lecture.
+Question: What is diffrence between Named Export, default export and * as export?
+Answer: These are the three ways to use export in React.
+        a:- Named Export - when we directly export a variable or function while we are declaring it, it will be a named export.
+                            when we import a named export, we have to use the same name of that exported variable/function and that also should be in {}. 
+                            we use same name while importing that's why it is called as named export.
+
+                            syntax(export) : export const calculateSum() =>{
+                                                        // piece of code
+                                                    }
+                            syntax(import) : import {calculateSum} from "filelocation"                        
+        
+        b:- default export - When we export a variable/function after the declartion, it will be a default export. we use default keyword also for default export.
+                                When we import a default export, we can use any name we want and we don't have to use {}.
+
+                              syntax(export) : const calculateSum() =>{
+                                                        // piece of code
+                                                    }
+                                                export default calculateSum;
+
+                             syntax(import) : import calculateSum from "filelocation" // we can use any name we want.
+
+        c:- * as export -   if in a file there are many named named exports then we can use this method , we will store all the import in a variable using * and after that we can use what we want by destructuring that stored import.
+
+                            syntax(export) : export const calculateSum() =>{
+                                                        // piece of code
+                                                    }
+                                            export const calculateDiff() =>{
+                                                        // piece of code
+                                                    }
+                            syntax(import) : import * as math from "filelocation"
+
+                                                we can use this by math.calculateSum() or math.calculateDiff();
+
+
+Question :  What is the importance of config.js file?
+Answer:     In config.js file, we put hard-coded data and variables. such as CDN,imageURLs and other things that are constant for our project.
+
+Question :  What are React Hooks?
+Answer:     React Hooks nothing but a JavaScript function, which is written by FaceBook Developers.
+            And these functions are written in React library. we can import Hooks and use them.
+
+Question :  Why do we need a useState Hook?
+Answer:     By useState Hook, we can create React variables.
+                React variables : These variables comes with a state. React stores a state of its variables and watch them continously if there state is change or same. and this process done by diff algorithms and this process is recontialation.
