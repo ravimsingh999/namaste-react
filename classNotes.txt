@@ -1,0 +1,57 @@
+*** These are the two architecture being used by industry in big projects.
+
+MONOLITH : Here only one project will be there, all the UI, backend, log, authentication all the functioanlity will be in the same project. that's why it is monolithic.
+            Advantage :     don't have to manage diffrent projects and repositories.
+            Disadvantage:   Hard to manage, like if we have to add a button in the project then we have to deploy the whole project again.
+                            Language barrier, we can not just make any functioanlity with other other frameworks and languages.
+
+Microservices: In current time, this architecture is being used by industry. in this way, our whole project will be devided in other other Microservices and these microservices will be hosted on diffrent diffrent ports.
+                like These can be microservices in the same project : UI, backend, log, authentication.
+                    and also these microservices will be handled by diffrent teams, diffrent repositories.
+                    and it will be deployed seprately.
+                
+                Advantage:  Sepration of concern  or single responsibility.
+                            easy to test, maintain.
+                            Easy to handle.
+                            can use many technologies in same project. like UI - react , backend - java, notification - python, logs- php, authentication - golang.
+                
+                How it works : lets assume react will be run on :   port: 1234,
+                                            backend will be run on: port: 1235, like that...
+
+                                or
+                                port 3000 ---> /
+                                port 4000 ---> /dapi/
+                                port 3500 ---> /notification            
+
+
+*** Ways to make API call.
+    1. as soon as user load the page and api will load.
+
+    2. as soon as user load the page, user make a call to api and load.
+
+    2nd option is good way.
+    And to get this use react gives us the imp hook known as "useEffect".
+
+    useEffect : useEffect is a function. syntax : useEffect(()=>{
+                                                    // callback function
+                                                    },[dependency array])
+                
+                its a react hook, we use this hook for making a api call or something which we want how it rerender.
+                like example , if we are calling a api in a component so whenever that component will rerender our api will be called and it will load. to prevent this we will use a react hook called useEffect.
+
+                useEffect is a function, which takes two params , one is a callback function and other is dependency array.
+                we have to use named import to use this.
+
+                ** when our page will load, it will be called once.
+                ** whenever our dependency will be change it will be called.
+                ** if dependency array will be empty, this will be called just once when page loads.
+                            & when will it be called, if dependency array is empty, after loading the page or before, it will be called after, because it uses callback function and dependency array is empty so it will not be depended on anything so it will be called after.
+
+                            empty dependency array ==> once after render
+                            dependency array [x,y,z] ==> once after initial render + everytime after render (dependency state will be change)
+
+
+** Shimmer UI : When the page is loading , it will show the empty boxes, empty cards while loading the content.
+
+Conditional rendering : when our data is being load we can show shimmer ui or we can some loading data.
+

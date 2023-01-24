@@ -1,44 +1,85 @@
-Question: What is diffrence between Named Export, default export and * as export?
-Answer: These are the three ways to use export in React.
-        a:- Named Export - when we directly export a variable or function while we are declaring it, it will be a named export.
-                            when we import a named export, we have to use the same name of that exported variable/function and that also should be in {}. 
-                            we use same name while importing that's why it is called as named export.
+Question :  What is a microservice?
+Answer:     Microservices: In current time, this architecture is being used by industry. in this way, our whole project will be devided in other other Microservices and these microservices will be hosted on diffrent diffrent ports.
+                like These can be microservices in the same project : UI, backend, log, authentication.
+                    and also these microservices will be handled by diffrent teams, diffrent repositories.
+                    and it will be deployed seprately.
+                
+                Advantage:  Sepration of concern  or single responsibility.
+                            easy to test, maintain.
+                            Easy to handle.
+                            can use many technologies in same project. like UI - react , backend - java, notification - python, logs- php, authentication - golang.
+                
+                How it works : lets assume react will be run on :   port: 1234,
+                                            backend will be run on: port: 1235, like that...
 
-                            syntax(export) : export const calculateSum() =>{
-                                                        // piece of code
-                                                    }
-                            syntax(import) : import {calculateSum} from "filelocation"                        
-        
-        b:- default export - When we export a variable/function after the declartion, it will be a default export. we use default keyword also for default export.
-                                When we import a default export, we can use any name we want and we don't have to use {}.
+                                or
+                                port 3000 ---> /
+                                port 4000 ---> /dapi/
+                                port 3500 ---> /notification
 
-                              syntax(export) : const calculateSum() =>{
-                                                        // piece of code
-                                                    }
-                                                export default calculateSum;
+Question :  what is monolith architecture?
+Answer:     MONOLITH : Here only one project will be there, all the UI, backend, log, authentication all the functioanlity will be in the same project. that's why it is monolithic.
+            Advantage :     don't have to manage diffrent projects and repositories.
+            Disadvantage:   Hard to manage, like if we have to add a button in the project then we have to deploy the whole project again.
+                            Language barrier, we can not just make any functioanlity with other other frameworks and languages.
+            
 
-                             syntax(import) : import calculateSum from "filelocation" // we can use any name we want.
+Question :  What is the diffrence between monolith and Microservice ?
+Answer:     
 
-        c:- * as export -   if in a file there are many named named exports then we can use this method , we will store all the import in a variable using * and after that we can use what we want by destructuring that stored import.
+Question:   Why do we need a useEffect Hook?
+Answer:     its a react hook, we use this hook for making a api call or something which we want how it rerender.
+                like example , if we are calling a api in a component so whenever that component will rerender our api will be called and it will load. to prevent this we will use a react hook called useEffect.
 
-                            syntax(export) : export const calculateSum() =>{
-                                                        // piece of code
-                                                    }
-                                            export const calculateDiff() =>{
-                                                        // piece of code
-                                                    }
-                            syntax(import) : import * as math from "filelocation"
+                useEffect is a function, which takes two params , one is a callback function and other is dependency array.
+                we have to use named import to use this.
 
-                                                we can use this by math.calculateSum() or math.calculateDiff();
+                ** when our page will load, it will be called once.
+                ** whenever our dependency will be change it will be called.
+                ** if dependency array will be empty, this will be called just once when page loads.
+                            & when will it be called, if dependency array is empty, after loading the page or before, it will be called after, because it uses callback function and dependency array is empty so it will not be depended on anything so it will be called after.
+
+                            empty dependency array ==> once after render
+                            dependency array [x,y,z] ==> once after initial render + everytime after render (dependency state will be change)
+
+Question:   what is Optional chaining?
+Answer:     The optional chaining (?.) operator accesses an object's property or calls a function. If the object accessed or function called is undefined or null, it returns undefined instead of throwing an error.
+            * this is a very imp thing to implement in our code because if we are not getting a data correctly or we are getting that data is null, or may be that data is getting load that's why it is null, in this scenario it it very important.
+
+Question : What is the diffrence between JS expression and JS statement?
+Answer:     JS expression : At its core, an expression is a bit of JavaScript code that produces a value.
+                                For example, these are all expressions:
+
+                                1 → produces 1
+                                "hello" → produces "hello"
+                                5 * 10 → produces 50
+                                num > 100 → produces either true or false
+                                isHappy ? "🙂" : "🙁" → produces an emoji
+                                [1, 2, 3].pop() → produces the number 3
+
+            JS statement : A JavaScript program is a sequence of statements. Each statement is an instruction for the computer to do something.
+                            like example : let x = 5; or if else statement etc....
+
+Question : What is Conditional rendering? explain with a code example
+Answer:     if we have some jsx/component to be rendered and we put certain condition on it that if this condition will be true then this component or jsx will have to rendered and vice versa.
+                example :   {isLoggedIn === false ? (
+                            <button onClick={() => setIsLoggedIn(true)}>logout</button>
+                            ) : (
+                            <button onClick={() => setIsLoggedIn(false)}>login</button>
+                            )}        
+                        // Here isLoggedIn can be a stateVariable or js variable.
+
+Question: What is CORS?
+Answer:   
+
+Question: what is async and await?
+Answer:
+
+Question: What is use of const json = await data.json(); in getResturent();
+Answer:
 
 
-Question :  What is the importance of config.js file?
-Answer:     In config.js file, we put hard-coded data and variables. such as CDN,imageURLs and other things that are constant for our project.
+Question: What is Shimmer UI?
+Answer: Shimmer UI : When the page is loading , it will show the empty boxes, empty cards while loading the content.
 
-Question :  What are React Hooks?
-Answer:     React Hooks nothing but a JavaScript function, which is written by FaceBook Developers.
-            And these functions are written in React library. we can import Hooks and use them.
 
-Question :  Why do we need a useState Hook?
-Answer:     By useState Hook, we can create React variables.
-                React variables : These variables comes with a state. React stores a state of its variables and watch them continously if there state is change or same. and this process done by diff algorithms and this process is recontialation.
