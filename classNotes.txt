@@ -44,14 +44,21 @@ Microservices: In current time, this architecture is being used by industry. in 
 
                 ** when our page will load, it will be called once.
                 ** whenever our dependency will be change it will be called.
-                ** if dependency array will be empty, this will be called just once when page loads.
+                ** if dependency array will be empty, this will be called just once when page loads. means after initial render it will be called just once.
                             & when will it be called, if dependency array is empty, after loading the page or before, it will be called after, because it uses callback function and dependency array is empty so it will not be depended on anything so it will be called after.
 
                             empty dependency array ==> once after render
                             dependency array [x,y,z] ==> once after initial render + everytime after render (dependency state will be change)
-
+                ** if we put just the callback function (not the dependency array) then this useEffect will be called after every render.
 
 ** Shimmer UI : When the page is loading , it will show the empty boxes, empty cards while loading the content.
 
 Conditional rendering : when our data is being load we can show shimmer ui or we can some loading data.
+
+
+** NEVER CREATE A COMPONENT INSIDE A COMPONENT : because everytime component will be rendered, the component will be created.
+** NEVER EVER WRITE A USESTATE() INSIDE A IF ELSE STATEMENT.  leads to insconsistency.
+** NEVER EVER WRITE A USESTATE() INSIDE A FOR LOOP.             leads to insconsistency.
+** NEVER NEVER USESTATE() outside of the component. for component only we are making these variables.
+
 
