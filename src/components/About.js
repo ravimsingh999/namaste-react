@@ -1,3 +1,7 @@
+import { Outlet } from "react-router-dom";
+import ProfileClass from "./ProfileClass";
+import ProfileFunction from "./Profile";
+
 const About = () => {
   return (
     <div>
@@ -6,6 +10,10 @@ const About = () => {
         Food Villa Restaurent is a React Project created in guidence of Akshay
         Saini....
       </h2>
+      <div>
+        <ProfileFunction name={"Shanu"} />
+        <ProfileClass name={"Shanu"} />
+      </div>
     </div>
   );
 };
