@@ -1,0 +1,21 @@
+Readable , reusable, maintainable, these are key uses when we make our own hook
+modularity - we have broken our codes acc to logic wise , every comp is have some diffrent work.
+
+
+chunking/bundling/lazy-load/Code-splitng ->    Why we need this ? 
+/Dynamic Bundling/On demand loading            Suppose in a large application there are 100+ components and when we bundle them by our bundler then our one bundled js file will be big and it will take time, so it is not a optimized way. So we need to bundle things seprately , we should do chunking.
+                                
+                                                How We can do ->
+                                                We will use lazy() function for import where we want to apply lazy loading. it is in react lib , we have to use named import.
+                                        Syntax- normal : import component_name from "/location"
+                                                with lazy : const component_name = lazy(()=>import("/location")).
+
+                                    if we lazy load things it may happen that react will try to render before it loads so for that,
+                                    we use Suspense , it is again a named import from react.
+
+                                    Syntax - <Suspense> <component_name />  </Suspense>
+                                    Till the pages loads we can show some msg or shimmer UI : syntax - <Suspense fallback={<Shimmer /> or <h1>Some messages</h1>}> <component_name />  </Suspense>
+
+            *** Never lazy load inside a component , because every time that component will be rendered lazy load will be happening.
+
+            

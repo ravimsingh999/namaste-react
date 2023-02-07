@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -9,6 +9,13 @@ import Contact from "./components/Contact";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import RestaurentMenu from "./components/RestaurentMenu";
 import Profile from "./components/Profile";
+import Cart from "./components/Cart";
+
+// This is how we normally import
+// import Instamart from "./components/Instamart";
+// by lazy load :
+
+const Instamart = lazy(() => import("./components/Instamart"));
 
 const AppLayout = () => {
   return (
@@ -47,6 +54,18 @@ const appRouter = createBrowserRouter([
       {
         path: "restaurent/:id",
         element: <RestaurentMenu />,
+      },
+      {
+        path: "cart",
+        element: <Cart />,
+      },
+      {
+        path: "instamart",
+        element: (
+          <Suspense fallback={<h1>page is loading</h1>}>
+            <Instamart />
+          </Suspense>
+        ),
       },
     ],
   },

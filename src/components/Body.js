@@ -1,36 +1,20 @@
-import { restaurentList } from "../config";
 import RestaurentCard from "./RestaurentCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
-
-function filterData(searchInput, allRestaurents) {
-  const filterData = allRestaurents.filter((restaurent) => {
-    return restaurent?.data?.name
-      .toLowerCase()
-      ?.includes(searchInput.toLowerCase());
-  });
-  return filterData;
-}
+import { filterData } from "../utils/Helper";
+import useRestaurent from "../utils/useRestaurent";
+import useOnline from "../utils/useOnline";
 
 const Body = () => {
-  //let searchInput = "KFC";
   const [searchInput, setSearchInput] = useState("");
-  const [allRestaurents, setAllRestaurents] = useState([]);
-  const [filterRestaurents, setFilterRestaurents] = useState([]);
 
-  useEffect(() => {
-    getResturentData();
-  }, []);
+  const filterRestaurents = useRestaurent();
+  const allRestaurents = useRestaurent();
 
-  async function getResturentData() {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.4916812&lng=77.094897&page_type=DESKTOP_WEB_LISTING"
-    );
-    const json = await data.json();
-    // console.log(json);
-    setAllRestaurents(json?.data?.cards[2]?.data?.data?.cards);
-    setFilterRestaurents(json?.data?.cards[2]?.data?.data?.cards);
+  const online = useOnline();
+  if (!online) {
+    return <h1>Oops, You are Offline</h1>;
   }
 
   return allRestaurents?.length === 0 ? (
@@ -57,7 +41,6 @@ const Body = () => {
           Search
         </button>
       </div>
-      {/* <h1>{searchInput}</h1> */}
       {filterRestaurents.length === 0 ? (
         <h1>Your search is not found</h1>
       ) : (
@@ -72,10 +55,6 @@ const Body = () => {
               </Link>
             );
           })}
-          {/* <ResturentCard {...resturentList[0].data.data} />
-        <ResturentCard {...resturentList[1].data.data} />
-        <ResturentCard {...resturentList[2].data.data} />
-        <ResturentCard {...resturentList[3].data.data} /> */}
         </div>
       )}
     </>
