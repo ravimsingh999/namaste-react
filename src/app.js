@@ -11,10 +11,6 @@ import RestaurentMenu from "./components/RestaurentMenu";
 import Profile from "./components/Profile";
 import Cart from "./components/Cart";
 
-// This is how we normally import
-// import Instamart from "./components/Instamart";
-// by lazy load :
-
 const Instamart = lazy(() => import("./components/Instamart"));
 
 const AppLayout = () => {
