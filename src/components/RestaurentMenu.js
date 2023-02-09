@@ -10,15 +10,15 @@ const RestaurentMenu = () => {
   return !restaurentData ? (
     <Shimmer />
   ) : (
-    <div className="menu">
-      <div>
+    <div className="flex">
+      <div className="m-2">
         <img src={IMG_CDN_URL + restaurentData?.data?.cloudinaryImageId} />
         <h1>{restaurentData?.data?.area}</h1>
         <h1>{restaurentData?.data?.city}</h1>
         <h1>{restaurentData?.data?.costForTwo}</h1>
         <h1>{restaurentData?.data?.totalRatings}</h1>
       </div>
-      <div>
+      <div className="m-2">
         <h1>Menu</h1>
         <ul>
           {Object.values(restaurentData?.data?.menu?.items).map((e) => {

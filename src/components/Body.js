@@ -3,14 +3,26 @@ import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { filterData } from "../utils/Helper";
-import useRestaurent from "../utils/useRestaurent";
 import useOnline from "../utils/useOnline";
 
 const Body = () => {
+  const [allRestaurents, setAllRestaurents] = useState([]);
+  const [filterRestaurents, setFilterRestaurents] = useState([]);
   const [searchInput, setSearchInput] = useState("");
 
-  const filterRestaurents = useRestaurent();
-  const allRestaurents = useRestaurent();
+  useEffect(() => {
+    getResturentData();
+  }, []);
+
+  async function getResturentData() {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.4916812&lng=77.094897&page_type=DESKTOP_WEB_LISTING"
+    );
+    const json = await data.json();
+    // console.log(json);
+    setAllRestaurents(json?.data?.cards[2]?.data?.data?.cards);
+    setFilterRestaurents(json?.data?.cards[2]?.data?.data?.cards);
+  }
 
   const online = useOnline();
   if (!online) {
@@ -21,10 +33,10 @@ const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="search-container">
+      <div className="search-container p-2 m-2">
         <input
           type="text"
-          className="search-input"
+          className="focus: p-1 m-1"
           placeholder="Search"
           value={searchInput}
           onChange={(e) => {
@@ -32,7 +44,7 @@ const Body = () => {
           }}
         />
         <button
-          className="search-btn"
+          className="px-2 bg- bg-green-400"
           onClick={() => {
             let data = filterData(searchInput, allRestaurents);
             setFilterRestaurents(data);
@@ -44,7 +56,7 @@ const Body = () => {
       {filterRestaurents.length === 0 ? (
         <h1>Your search is not found</h1>
       ) : (
-        <div className="resturents">
+        <div className="flex flex-wrap">
           {filterRestaurents.map((resturent) => {
             return (
               <Link

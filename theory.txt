@@ -1,27 +1,27 @@
-Question: When and why we need lazy load?
-Answer: Suppose in a large application there are 100+ components and when we bundle them by our bundler then our one bundled js file will be big and it will take time, so it is not a optimized way. So we need to bundle things seprately , we should do chunking.
-                                
-                How We can do ->
-                We will use lazy() function for import where we want to apply lazy loading. it is in react lib , we have to use named import.
-        Syntax- normal : import component_name from "/location"
-                with lazy : const component_name = lazy(()=>import("/location")).
+Question : What are all the ways to write css ?
+Answer: inline CSS, external CSS, make a js object of css properties and use them in style ={} , css libraries and frameworks.
 
-Question : What is Suspense?
-Answer:  if we lazy load things it may happen that react will try to render before it loads so for that,
-            we use Suspense , it is again a named import from react lib , we have to use named import.
-            Syntax - <Suspense> <component_name />  </Suspense>
-            Till the pages loads we can show some msg or shimmer UI : syntax - <Suspense fallback={<Shimmer /> or <h1>Some messages</h1>}> <component_name />  </Suspense>
+Question : How tp configure Tailwind?
+Answer:     To configure Tailwind , we have to go to the tailwind web , and acc to our bundler we have to configure the tailwind.
+            like in parcel :
+                    - run command - npm i -d tailwindcss postcss
+                    - run command - npx-tailwindcss init
+                    - we have to make a .postcssrc file.
+                    - we have to set tailwind.config.js file with module.exports = {
+                                                                                        content: [
+                                                                                          "./src/**/*.{html,js,ts,jsx,tsx}",
+                                                                                        ],
+                                                                                        theme: {
+                                                                                          extend: {},
+                                                                                        },
+                                                                                        plugins: [],
+                                                                                    }
+                    - in the main css file, like index.css -> we have to put these three lines :    @tailwind base;
+                                                                                                    @tailwind components;
+                                                                                                    @tailwind utilities;
 
-Question: Advantages and disadvantages of using this code spliting patten.
-Answer : Advantages :   in large application it will increase the peformence of our app.
-                        reduce initial loading time.
-                        bundled js file will be light weight.
-        
-        disadvantages:  If the app is very small, then it may be a disadvantage.
-                        
-                        // do google for more disadvantage.
+Question: Why do we have .postcssrc file?
+Answer:   this file is for post css to tell that we are using tailwind plugin.
+            postcss is like a compiler of tailwind, it compiles tailwind css into normal css, which browser understands.
 
-Question: When do we need and why we need Suspense?
-Answer: When react try to render the component before it is loaded , then a error will come, to prevent that we need Suspense.
-        basically when we use Suspense then react knows okay it is a lazy load, wait for some ms(time).
-        Also in Suspense we can give pre messages or shimmer UI until the actual component is load.
+                          

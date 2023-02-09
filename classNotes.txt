@@ -1,21 +1,36 @@
-Readable , reusable, maintainable, these are key uses when we make our own hook
-modularity - we have broken our codes acc to logic wise , every comp is have some diffrent work.
+Pros and cons of css framework..
+
+Pros:   easy to implement.
+        consistent UI
+        re-useability
+        makes development very fast.
+        east to code.
+
+cons:   dependency( it restrict us to modifying)
 
 
-chunking/bundling/lazy-load/Code-splitng ->    Why we need this ? 
-/Dynamic Bundling/On demand loading            Suppose in a large application there are 100+ components and when we bundle them by our bundler then our one bundled js file will be big and it will take time, so it is not a optimized way. So we need to bundle things seprately , we should do chunking.
-                                
-                                                How We can do ->
-                                                We will use lazy() function for import where we want to apply lazy loading. it is in react lib , we have to use named import.
-                                        Syntax- normal : import component_name from "/location"
-                                                with lazy : const component_name = lazy(()=>import("/location")).
+type of css we can use in our project -> 
+            normal css
+            scss
+            Inline css
+            UI libraries (Material UI, Base UI, Ant UI, Chakre UI, styled components & Tailwind css.)
 
-                                    if we lazy load things it may happen that react will try to render before it loads so for that,
-                                    we use Suspense , it is again a named import from react.
+        Tailwind css: 
+                    (Why) :
 
-                                    Syntax - <Suspense> <component_name />  </Suspense>
-                                    Till the pages loads we can show some msg or shimmer UI : syntax - <Suspense fallback={<Shimmer /> or <h1>Some messages</h1>}> <component_name />  </Suspense>
+                    (How) :
 
-            *** Never lazy load inside a component , because every time that component will be rendered lazy load will be happening.
 
-            
+
+        Pros and cons of Tailwind :
+
+        Pros:   Easy to debug. (code is less),
+                bundle is small
+                faster development
+                A lot more control over css.
+                (html,css,js ) in the same file.
+
+        cons:   Initial learning curve (every new developer comes to our project he will have to learn this.)
+                a lot of code will be in the class in opening tags, but it is ok, becasue en the end we have to use css file otherwise.
+                
+                
