@@ -11,6 +11,8 @@ import RestaurentMenu from "./components/RestaurentMenu";
 import Profile from "./components/Profile";
 import Cart from "./components/Cart";
 import UserContext from "./utils/userContext";
+import { Provider } from "react-redux";
+import store from "./utils/store";
 
 const Instamart = lazy(() => import("./components/Instamart"));
 
@@ -20,15 +22,17 @@ const AppLayout = () => {
     email: "ravimsingh@gmail.com",
   });
   return (
-    <UserContext.Provider
-      value={{
-        user: user,
-      }}
-    >
-      <Header />
-      <Outlet />
-      <Footer />
-    </UserContext.Provider>
+    <Provider store={store}>
+      <UserContext.Provider
+        value={{
+          user: user,
+        }}
+      >
+        <Header />
+        <Outlet />
+        <Footer />
+      </UserContext.Provider>
+    </Provider>
   );
 };
 
