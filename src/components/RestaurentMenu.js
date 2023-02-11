@@ -10,12 +10,8 @@ const RestaurentMenu = () => {
   const restaurentData = useRestaurent(params.id);
   const dispatch = useDispatch();
 
-  const handleAddItem = (name) => {
-    dispatch(addItem(name));
-  };
-
-  const handleAddItemInCart = () => {
-    dispatch(addItem(""));
+  const handleAddItemInCart = (e) => {
+    dispatch(addItem(e));
   };
 
   return !restaurentData ? (
@@ -28,12 +24,6 @@ const RestaurentMenu = () => {
         <h1>{restaurentData?.data?.city}</h1>
         <h1>{restaurentData?.data?.costForTwo}</h1>
         <h1>{restaurentData?.data?.totalRatings}</h1>
-        <button
-          className="p-2 m-2 bg-green-200"
-          onClick={() => handleAddItem()}
-        >
-          addItem
-        </button>
       </div>
       <div className="m-2">
         <h1 className="p-2 m-2 font-bold text-lg">Menu</h1>
@@ -46,7 +36,7 @@ const RestaurentMenu = () => {
                 </li>
                 <button
                   className="p-2 m-2 bg-blue-200"
-                  onClick={() => handleAddItemInCart(e.name)}
+                  onClick={() => handleAddItemInCart(e)}
                 >
                   add
                 </button>
