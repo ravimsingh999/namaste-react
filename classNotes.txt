@@ -7,3 +7,6 @@ react tetsing library : it is made on top of jest.
 In create react app, testing configs are already installed.
 
 
+check textbook notes for more.
+
+
