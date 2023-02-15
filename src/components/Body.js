@@ -35,6 +35,7 @@ const Body = () => {
     <>
       <div className="search-container p-2 m-2">
         <input
+          data-testId="search-input"
           type="text"
           className="focus: p-1 m-1"
           placeholder="Search"
@@ -44,6 +45,7 @@ const Body = () => {
           }}
         />
         <button
+          data-testId="search-btn"
           className="px-2 bg- bg-green-400"
           onClick={() => {
             let data = filterData(searchInput, allRestaurents);
@@ -56,7 +58,7 @@ const Body = () => {
       {filterRestaurents.length === 0 ? (
         <h1>Your search is not found</h1>
       ) : (
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap" data-testId="rest-list">
           {filterRestaurents.map((resturent) => {
             return (
               <Link

@@ -1,1 +1,9 @@
-For clasnotes , check papernotes in dairy.
+Testing.................
+
+Using jest or react tetsing library. before react testing library, people use Enzyme.
+
+react tetsing library : it is made on top of jest.
+
+In create react app, testing configs are already installed.
+
+

@@ -3,12 +3,11 @@ import logo from "../assets/img/logo.png";
 import { Link } from "react-router-dom";
 import UserContext from "../utils/userContext";
 import { useSelector } from "react-redux";
-import store from "../utils/store";
 
 const Title = () => {
   return (
     <a href="/">
-      <img className="h-20 w-25 p-2" alt="logo" src={logo} />
+      <img data-testid="logo" className="h-20 w-25 p-2" alt="logo" src={logo} />
     </a>
   );
 };
@@ -36,9 +35,11 @@ const Header = () => {
           <li className="px-2">
             <Link to="/instamart">Instamart </Link>
           </li>
-          <li className="px-2">
-            <Link to="/cart">Cart - {cartItems.length}</Link>
-          </li>
+          <Link to="/cart">
+            <li data-testId="cart" className="px-2">
+              Cart - {cartItems.length}
+            </li>
+          </Link>
         </ul>
       </div>
       <h1 className="p-4 m-2">{user.name}</h1>
